@@ -7,47 +7,46 @@ bool term[20][20]={false};
 string s;
 bool ok=true,kt=true;
 void out(int k){ 
-	
 	for(int i=0;i<k;++i){
-		
 		cout<<s[i];
-		
 	}
 	cout<<" ";
-}
+} //out 
+
 void dequy(int i,int j,int k){
 	if(i==n&&j==n){
 		out(k);
 		kt=false;
-	}
-	if(i<n&&a[i+1][j]&&term[i+1][j]){
-		s[k]='D';
-		term[i][j]=false;
-		dequy(i+1,j,k+1);
-		term[i][j]=true;
-	}
-	if(j>1&&a[i][j-1]&&term[i][j-1]){
-		s[k]='L';
-		//cout<<"\ntam:"<<i<<" "<<j-1<<" "<<term[i][j-1]<<endl;
-		term[i][j]=false;
-		dequy(i,j-1,k+1);
-		term[i][j]=true;
-	}
+	} // if 
 	if(j<n&&a[i][j+1]&&term[i][j+1]){
 		s[k]='R';
 		term[i][j]=false;
 		dequy(i,j+1,k+1);
 		term[i][j]=true;
-	}
+	} // if
+	if(i<n&&a[i+1][j]&&term[i+1][j]){
+		s[k]='D';
+		term[i][j]=false;
+		dequy(i+1,j,k+1);
+		term[i][j]=true;
+	} // if
+
+	if(j>1&&a[i][j-1]&&term[i][j-1]){
+		s[k]='L';
+		term[i][j]=false;
+		dequy(i,j-1,k+1);
+		term[i][j]=true;
+	} // if
+	
 	if(i>1&&a[i-1][j]&&term[i-1][j]){
 		
 		s[k]='U';
 		term[i][j]=false;
 		dequy(i-1,j,k+1);
 		term[i][j]=true;
-	}
+	} //if
 	
-}
+} // dequy
 int main(){
 	int bo,k;
 	cin>>bo;

@@ -12,6 +12,7 @@ void sinh(){
 		R=D/X[i];
 		S=D%X[i];
 		k=i;
+		cout<<"i D,S,R="<<i<<" "<<D<<" "<<S<<" "<<R<<" "<<endl;
 		if(R>0){
 			for(j=i+1;j<=i+R;j++) X[j]=X[i];
 			k=k+R;
